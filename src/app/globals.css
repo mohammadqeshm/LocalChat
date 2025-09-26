@@ -38,6 +38,7 @@ a {
   text-decoration: none;
 }
 .body {
+  background-color: hsl(0, 0%, 0%);
     background-image: url("/image/mobileBackground.png");
     background-size: cover;
     width: 100%;
@@ -78,8 +79,8 @@ p.online-numders {
 }
 .flex-btn {
     position: fixed;
+    top: 10px;
     right: 5px;
-    top: 5px;
 }
 button{
   background: none;
@@ -152,11 +153,16 @@ p,h1{
     width: 100%;
     height: 100%;
     display: flex;
+    
 }
 .button-add-group{
   color: white;
   font-weight: bold;
 }
+
+
+
+
 
 
 @media (min-width: 900px) {
@@ -167,7 +173,7 @@ p,h1{
     display: flex;
 }
 .body {
-    background-image: url("/image/largBackground.png");
+    background-image: url("/image/largBackground2.png");
 }
 
 }

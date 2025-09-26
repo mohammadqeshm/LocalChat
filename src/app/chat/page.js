@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import {useEffect, useRef, useState } from "react";
 import "./chat.css";
 
 function CHAT(params) {
@@ -197,6 +197,30 @@ function CHAT(params) {
       timestamp: "11:21",
     },
   ]);
+  let [valumestatus, setvalumestatus] = useState((localStorage.getItem("settings")??1)==1?true:JSON.parse(localStorage.getItem("settings")).valumestatus);
+  let [notification, setnotification] = useState((localStorage.getItem("settings")??1)==1?"audio1":JSON.parse(localStorage.getItem("settings")).notification);
+let [heightvid,setheightvid]=useState(window.innerWidth/2)
+let files=useRef()
+function filesselect() {
+  files.current.click()
+} 
+useEffect(()=>{
+
+  function send(params) {
+        if (valumestatus==true) {
+      if (notification ==="audio1") {
+      new Audio("/notification/1.mp3").play();
+    } else if (notification ==="audio2") {
+      new Audio("/notification/2.mp3").play();
+    } else if (notification ==="audio3") {
+      new Audio("/notification/3.mp3").play();
+    }
+  } 
+  }
+
+window.addEventListener("click",send)
+return ()=> window.removeEventListener("click",send)
+},[])
 
   let chatData = chats.map((i, index) => {
     return (
@@ -233,8 +257,8 @@ function CHAT(params) {
           )}
 
           {i.file_type === "video" ? (
-            <div className="chat-file-video">
-              <video src={i.url} width="50%" controls></video>
+            <div className="chat-file-video"> 
+              <video style={{ width: "50%", aspectRatio: "1 / 1" }}src={i.url} controls></video>
             </div>
           ) : (
             ""
@@ -288,8 +312,9 @@ function CHAT(params) {
       <div className="group-chat-continer">
         <div className="chats">{chatData}</div>
         <div className="send-continer">
-          <div className="send">
-            <button className="upload-file">
+          <div className="send"> 
+            <input ref={files} style={{display:"none"}} type="file"></input>
+            <button onClick={()=>{filesselect()}} className="upload-file">
               <svg
                 width="31"
                 height="31"

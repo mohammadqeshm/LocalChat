@@ -2,6 +2,7 @@
 
 import { useEffect,useState} from "react";
 import { useRouter } from "next/navigation";
+import { useGlobalState } from "@/globallContext/globallstate";
 
 
 function Home() {
@@ -62,6 +63,7 @@ useEffect(()=>{
   }
   testdata()
 },[])
+  const { hidecon, setHidecon, status, setStatus, volumeOn, setVolumeOn }=useGlobalState();
 
 let groups=groupData.map((i,index)=>{
 
@@ -81,12 +83,17 @@ return(
 
   return (
     <>
+   
+
 <div className="group-page-continer">
 <div className="groups">
 {groups}
 </div>
         <div className="add-group">
-          <button className="button-add-group">+ADD GROUP</button>
+          <button onClick={()=>{
+            setStatus("2")
+            setHidecon(false)
+              }} className="button-add-group">+ADD GROUP</button>
         </div>
       </div>
     </>

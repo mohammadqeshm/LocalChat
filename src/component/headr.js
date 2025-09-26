@@ -2,10 +2,12 @@
 
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { useGlobalState } from "@/globallContext/globallstate";
 
 function Header() {
   let mypath = usePathname();
   let router = useRouter();
+  const { hidecon, setHidecon, status, setStatus, volumeOn, setVolumeOn }=useGlobalState();
 
   return (
     <>
@@ -36,8 +38,7 @@ function Header() {
           {mypath === "/chat" ? (
             <button onClick={() => router.push("/")} className="flex-btn-2">
               <svg
-                width="36"
-                height="19"
+                width="25"
                 viewBox="0 0 36 19"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +53,11 @@ function Header() {
               </svg>
             </button>
           ) : (
-            <button className="flex-btn-1">
+            <button onClick={()=>{
+            setStatus("1")
+            setHidecon(false)
+              }} className="flex-btn-1">
+             
               <svg
                 width="25"
                 height="26"

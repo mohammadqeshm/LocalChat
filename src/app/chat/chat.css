@@ -35,14 +35,22 @@ button.send-massage {
   width: 70px;
   font-size: 20px;
 }
+button.send-massage:hover {
+  background-color: #f663f9ab;
+}
 .massage {
-  height: 100%;
-  background-color: #f0f8ff1a;
-  flex-grow: 1;
-  border: none;
-  outline: none;
-  border-top: solid 2px #f663f97e;
-  border-bottom: solid 2px #f663f97e;
+    background-color: rgba(240, 248, 255, .1);
+    border: 2px solid rgba(246, 99, 249, .494);
+    border-left: none;
+    border-right: none;
+    outline: none;
+    flex-grow: 1;
+    height: 100%;
+    resize: none;
+    color: #ffffff;
+}
+.massage::-webkit-scrollbar{
+  width: 0px;
 }
 button.upload-file {
     width: 40px;
@@ -78,4 +86,5 @@ a.chat-file-more-continer {
     margin: 5px;
     border-radius: 5px;
     border: solid 1px rgba(99, 226, 249, 0.62);
+    
 }
