@@ -3,11 +3,14 @@
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useGlobalState } from "@/globallContext/globallstate";
+import { useEffect, useState } from "react";
 
 function Header() {
   let mypath = usePathname();
   let router = useRouter();
-  const { hidecon, setHidecon, status, setStatus, volumeOn, setVolumeOn }=useGlobalState();
+
+  const { hidecon, setHidecon, status, setStatus, volumeOn, setVolumeOn,onlines,setonlines }=useGlobalState();
+
 
   return (
     <>
@@ -32,7 +35,7 @@ function Header() {
           </h1>
         </div>
         <div className="online-section">
-          <p className="online-numders">online:{3} </p>
+          <p className="online-numders">online:{onlines} </p>
         </div>
         <div className="flex-btn">
           {mypath === "/chat" ? (
