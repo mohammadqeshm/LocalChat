@@ -1,5 +1,5 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
+(توجه این پروژه نیاز به بک اند داره ادرس ریپازیتوری بک اند "LocalChat-backend")
 ## Getting Started
 
 First, run the development server:
